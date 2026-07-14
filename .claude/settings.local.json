@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.datasys.com.tw)",
+      "Bash(python3 build.py)",
+      "Bash(sips -s format jpeg -s formatOptions 78 -Z 1920 Brief1.png --out hero-home.jpg)",
+      "Bash(sips -s format jpeg -s formatOptions 78 -Z 1920 Brief2.png --out storage-closeup.jpg)",
+      "Bash(sips -s format jpeg -s formatOptions 78 -Z 1920 Brief3.png --out hero-ai.jpg)",
+      "Bash(sips -s format jpeg -s formatOptions 85 Cseries3.avif --out aff-cseries.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight aff-cseries.jpg)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(unzip -l site.zip)",
+      "Bash(git init *)",
+      "Bash(git branch *)",
+      "Bash(git add *)"
+    ]
+  }
+}
