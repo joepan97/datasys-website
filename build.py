@@ -498,7 +498,7 @@ CONTACT = """
 <li><b>Email</b>sales@datasys.com.tw</li>
 <li class="line-contact"><b>LINE 官方帳號</b><a class="line-add-button" href="https://line.me/R/ti/p/@758gjhvi" target="_blank" rel="noopener noreferrer"><img src="image/line-add-friend.png" alt="加入元僑科技 LINE 官方帳號"></a></li>
 <li><b>地址</b>新北市汐止區新台五路一段99號31樓之3</li>
-<li><b>服務時間</b><span class="todo">待確認（例：週一至週五 9:00–18:00）</span></li>
+<li><b>服務時間</b>週一至週五 9:00–18:00</li>
 </ul>
 <div class="map-ph">📍 Google 地圖嵌入位置（遠東世界中心，近汐科站）</div>
 </div>
