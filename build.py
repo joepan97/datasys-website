@@ -136,7 +136,6 @@ INDEX = """
 <h1>企業儲存、備份與 IT 設備<br>的專業供應商</h1>
 <p class="lead">NetApp 原廠認證工程師｜IBM LTO 磁帶代理｜自 2007 年服務台灣企業與政府機關</p>
 <div class="cta-row"><a class="btn" href="tel:0226973311">📞 立即詢價 02-2697-3311</a><a class="btn ghost" href="contact.html">✉️ Email 需求給我們</a></div>
-<p class="trustline">服務客戶：資誠聯合會計師事務所 PwC・華固建設・台灣日立空調（維護合約持續至今）</p>
 </div></section>
 
 <section class="sec"><div class="wrap">
