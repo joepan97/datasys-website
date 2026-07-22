@@ -105,7 +105,7 @@ FOOTER = """<section class="cta-band"><div class="wrap">
 <div><h4>元僑科技有限公司</h4>
 <p>新北市汐止區新台五路一段99號31樓之3<br>電話：02-2697-3311、02-2697-3312<br>Email：sales@datasys.com.tw<br>統一編號：28703966</p></div>
 <div><h4>產品與服務</h4><a href="netapp.html">NetApp 儲存設備</a><a href="lto.html">IBM LTO 磁帶</a><a href="parts.html">二手零件與設備</a><a href="rental.html">Storage 短期租賃</a><a href="security.html">資訊安全</a><a href="ai.html">AI 解決方案</a></div>
-<div><h4>公司</h4><a href="cases.html">成功案例</a><a href="about.html">關於我們</a><a href="contact.html">聯絡我們</a><a href="#">隱私權政策（待建）</a></div>
+<div><h4>公司</h4><a href="cases.html">成功案例</a><a href="about.html">關於我們</a><a href="contact.html">聯絡我們</a></div>
 </div><div class="copy">© 2026 元僑科技有限公司 Datasys Technologies Co., Ltd.　｜　自 2007 年服務台灣企業與政府機關</div></div></footer>"""
 
 def page(fname, title, desc, body):
@@ -165,8 +165,8 @@ INDEX = """
 
 <section class="sec"><div class="wrap">
 <h2>常見詢問</h2>
-<details class="faq"><summary>設備故障急需零件，多快可以供貨？</summary><p><span class="todo">待確認：實際供貨時效（例：常備庫存品項當日可出貨）</span></p></details>
-<details class="faq"><summary>LTO 磁帶可以少量購買嗎？</summary><p>常備 LTO-6/7/8（LTO-9 少量供應），數量需求請來電確認。<span class="todo">待確認：最小訂購量</span></p></details>
+<details class="faq"><summary>設備故障急需零件，多快可以供貨？</summary><p>庫存與供貨時間依型號、數量與當期庫存而定。請來電提供設備型號或零件編號，我們會盡快回覆庫存與交期。</p></details>
+<details class="faq"><summary>LTO 磁帶可以少量購買嗎？</summary><p>最低訂購量依磁帶世代與當期供貨條件而定，請提供規格與數量，我們會協助確認。</p></details>
 <details class="faq"><summary>Storage 租賃最短租期是多久？</summary><p>最短租期 30 天，安裝設定費另計，詳見 <a href="rental.html">租賃服務</a>。</p></details>
 <details class="faq"><summary>二手設備有保固嗎？</summary><p>有。二手零件與設備自交貨日起算 90 天內故障免費更換。</p></details>
 </div></section>"""
@@ -186,7 +186,7 @@ PARTS = """
 <div><h3>🗄 NetApp 儲存系統</h3><ul><li>FAS2700 系列</li><li>FAS2600 系列</li><li>FAS8200 系列</li><li>FAS8000 系列</li><li>各系列控制器、電源、風扇等零件</li></ul>
 <h3>💽 NetApp 硬碟櫃（Disk Shelf）</h3><ul><li>DS224C</li><li>DS212C</li><li>相關硬碟、線材與模組</li></ul></div>
 <div><h3>🔀 Cisco 網路設備</h3><ul><li>Nexus 9000 系列（N9K）Switch</li><li>Nexus 5000 系列（N5K）Switch</li></ul>
-<h3>🖥 其他品牌伺服器零件</h3><ul><li>HP / DELL / Oracle Sun Server 零件供應 <span class="todo">待確認：常備或調貨</span></li></ul></div>
+<h3>🖥 其他品牌伺服器零件</h3><ul><li>HP / DELL / Oracle Sun Server 零件，可依型號協助查詢供貨</li></ul></div>
 </div>
 <div class="promise"><strong>90 天保固承諾</strong><br>所有二手零件與設備，自交貨日起算 90 天內故障免費更換。</div>
 </div></section>
@@ -205,13 +205,11 @@ PARTS = """
 <div class="grid g3" style="margin-top:26px">
 <div class="card"><div class="ico">1️⃣</div><h3>報型號</h3><p>來電或 Email 報上設備型號／零件編號。</p></div>
 <div class="card"><div class="ico">2️⃣</div><h3>確認報價</h3><p>我們確認庫存與品況，回覆報價與交期。</p></div>
-<div class="card"><div class="ico">3️⃣</div><h3>出貨</h3><p>交貨日起 90 天保固。<span class="todo">待確認：到府安裝更換服務</span></p></div>
+<div class="card"><div class="ico">3️⃣</div><h3>出貨</h3><p>確認交期與交貨方式，二手零件與設備自交貨日起提供 90 天保固。</p></div>
 </div>
 <h2 style="margin-top:48px">常見詢問</h2>
 <details class="faq"><summary>怎麼確認你們有沒有我要的零件？</summary><p>直接來電 02-2697-3311 報型號或零件編號，庫存有無當場告訴你。</p></details>
-<details class="faq"><summary>二手零件品質如何把關？</summary><p><span class="todo">待確認：出貨前測試流程</span></p></details>
 <details class="faq"><summary>有保固嗎？</summary><p>有。自交貨日起算 90 天內故障免費更換。</p></details>
-<details class="faq"><summary>可以收購我們汰換下來的設備嗎？</summary><p><span class="todo">待確認：是否收購二手設備</span></p></details>
 </div></section>"""
 
 # ---------------------------------------------------------------- rental
@@ -244,8 +242,8 @@ RENTAL = """
 <h2>常見詢問</h2>
 <details class="faq"><summary>最短可以租多久？</summary><p>最短租期 30 天。</p></details>
 <details class="faq"><summary>租金包含安裝嗎？</summary><p>安裝設定費另計，由 NetApp 認證工程師到場執行；若貴公司自行上架設定，僅收租金。</p></details>
-<details class="faq"><summary>租賃設備故障怎麼辦？</summary><p><span class="todo">待確認：建議承諾租期內故障由本公司負責更換</span></p></details>
-<details class="faq"><summary>可以先租後買嗎？</summary><p><span class="todo">待確認：租金可否折抵購買</span></p></details>
+<details class="faq"><summary>租賃設備故障怎麼辦？</summary><p>故障處理與替代安排依租賃機型及合約內容而定，簽約前會先說明處理方式。</p></details>
+<details class="faq"><summary>可以先租後買嗎？</summary><p>是否可轉購與費用計算依機型及租賃方案而定，請來電說明使用期間與容量需求。</p></details>
 </div></section>"""
 
 # ---------------------------------------------------------------- lto
@@ -285,7 +283,7 @@ LTO = """
 
 <section class="sec"><div class="wrap">
 <h2>常見詢問</h2>
-<details class="faq"><summary>可以少量購買嗎？</summary><p><span class="todo">待確認：最小訂購量</span></p></details>
+<details class="faq"><summary>可以少量購買嗎？</summary><p>最低訂購量依磁帶世代與當期供貨條件而定，請提供需要的規格與數量確認。</p></details>
 <details class="faq"><summary>LTO 磁帶可以向下相容嗎？</summary><p>磁帶機一般可讀取前一至二個世代的磁帶，選購前歡迎來電確認您的磁帶機型號。</p></details>
 <details class="faq"><summary>報價需要提供什麼資訊？</summary><p>磁帶世代（如 LTO-8）與數量即可；不確定規格的話，告訴我們磁帶機或磁帶櫃型號，我們協助確認。</p></details>
 </div></section>"""
@@ -304,7 +302,7 @@ NETAPP = """
 <div class="grid g3" style="margin-top:26px">
 <div class="card"><div class="ico">🛒</div><h3>設備銷售與建置</h3><p>選型建議、報價、到府安裝建置與資料遷移。依實際容量與效能需求配置，不過度銷售。</p></div>
 <div class="card"><div class="ico">🤝</div><h3>長期維護</h3><p>資誠 PwC、華固建設、台灣日立空調等客戶的維護合約自建置後持續至今。</p></div>
-<div class="card"><div class="ico">🌐</div><h3>異地備援與資料保護</h3><p>備援架構規劃與建置。<span class="todo">待確認：SnapMirror 服務現況</span></p></div>
+<div class="card"><div class="ico">📦</div><h3>短期租賃與過保支援</h3><p>提供 NetApp FAS 短期租賃、過保零件供應與故障救援。</p></div>
 </div></div></section>
 
 <section class="sec soft"><div class="wrap">
@@ -319,7 +317,6 @@ NETAPP = """
 <li>適合檔案集中管理、虛擬化環境與資料保護應用</li>
 <li>由 NetApp 認證工程師規劃配置與到府建置</li>
 </ul>
-<p style="margin-bottom:18px"><span class="todo">待確認：主推型號與容量配置（C250 / C400 / C800）</span></p>
 <a class="btn" href="tel:0226973311">📞 索取 C 系列報價</a>
 </div>
 </div></div></section>
@@ -339,12 +336,11 @@ NETAPP = """
 <div class="feat"><div class="n">🏭</div><div><h3>中小企業</h3><p>檔案伺服器容量吃緊、需要集中儲存管理。</p></div></div>
 <div class="feat"><div class="n">📋</div><div><h3>法規保存產業</h3><p>會計、金融、營建等有長期保存要求的產業。</p></div></div>
 <div class="feat"><div class="n">🏛</div><div><h3>政府部門</h3><p>機關標案需要在地供應商與維護量能。</p></div></div>
-<div class="feat"><div class="n">🔁</div><div><h3>既有 NetApp 用戶</h3><p>需要第二家維護供應商比價的企業。<span class="todo">待確認：是否接手他廠建置</span></p></div></div>
+<div class="feat"><div class="n">🔁</div><div><h3>既有 NetApp 用戶</h3><p>有設備維護、故障排除或過保零件需求的企業。</p></div></div>
 </div>
 <h2 style="margin-top:48px">常見詢問</h2>
 <details class="faq"><summary>你們是 NetApp 的什麼合作等級？</summary><p>我們是 NetApp Registered Partner，並持有 NetApp 合格工程師認證。比起合作等級，更實際的參考是：我們自 2007 年專注 NetApp 領域近 20 年，資誠 PwC 等指標客戶的維護合約持續簽訂至今。</p></details>
-<details class="faq"><summary>可以只買設備不買維護嗎？</summary><p><span class="todo">待確認</span></p></details>
-<details class="faq"><summary>建置需要多久？</summary><p><span class="todo">待確認：典型交期與建置時程</span></p></details>
+<details class="faq"><summary>建置需要多久？</summary><p>時程取決於設備型號、供貨狀況、容量與資料遷移範圍，完成需求評估後會提供預估時程。</p></details>
 </div></section>"""
 
 # ---------------------------------------------------------------- security
@@ -359,8 +355,8 @@ SECURITY = """
 <section class="sec"><div class="wrap">
 <h2>產品與服務</h2>
 <div class="grid g2" style="margin-top:26px">
-<div class="card"><div class="ico">🛡</div><h3>次世代防火牆（NGFW）</h3><p>Palo Alto Networks 防火牆銷售與建置。<span class="todo">待確認：產品線範圍（PA 系列／授權續約等）</span></p></div>
-<div class="card"><div class="ico">⚙️</div><h3>建置與服務</h3><p><span class="todo">待確認：政策規劃、教育訓練、定期健檢等服務範圍</span></p></div>
+<div class="card"><div class="ico">🛡</div><h3>次世代防火牆（NGFW）</h3><p>Palo Alto Networks 防火牆銷售與建置，依企業網路環境與防護需求協助選型。</p></div>
+<div class="card"><div class="ico">⚙️</div><h3>建置與服務</h3><p>先盤點現有環境與需求，再確認設備、建置範圍與專案時程。</p></div>
 </div></div></section>
 
 <section class="sec soft"><div class="wrap">
@@ -394,7 +390,6 @@ AI = """
 <div class="feat"><div class="n">📊</div><div><h3>我們懂資料</h3><p>AI 的原料是資料。從 2008 年起我們就以「資料」為核心提供服務。</p></div></div>
 <div class="feat"><div class="n">🤝</div><div><h3>我們是長期合約型的公司</h3><p>AI 導入不是專案結案就結束，你需要一家會一直在的公司。</p></div></div>
 </div>
-<div class="promise" style="margin-top:30px"><strong>目前進行中</strong><br>我們正與長期合作的上市建設公司客戶進行 AI 導入合作。<span class="todo">待確認：可否具名露出與描述深度</span></div>
 </div></section>
 
 <section class="sec"><div class="wrap">
@@ -420,18 +415,12 @@ CASES = """
 
 <section class="sec"><div class="wrap">
 <div class="case"><h3>資誠聯合會計師事務所 PwC</h3><div class="tag">專業服務／會計審計</div>
-<p><b>客戶情境</b>　<span class="todo">暫時假設，請修正</span>　工作底稿與客戶資料有法定保存年限要求，資料量大、機密性高，備份與儲存的可靠度直接關係執業合規。</p>
-<p style="margin-top:8px"><b>我們提供</b>　NetApp 儲存設備建置・備份系統規劃・長期維護服務</p>
 <p class="ok">✔ 維護合約持續簽訂至今</p></div>
 
 <div class="case"><h3>華固建設</h3><div class="tag">營建／上市公司</div>
-<p><b>客戶情境</b>　<span class="todo">暫時假設，請修正</span>　建案圖說、合約與工程文件需長期保存，跨案場資料集中管理。</p>
-<p style="margin-top:8px"><b>我們提供</b>　儲存與備份系統建置・長期維護服務・<b>AI 導入合作進行中</b></p>
-<p class="ok">✔ 維護合約持續簽訂至今，並延伸至 AI 領域合作</p></div>
+<p class="ok">✔ 維護合約持續簽訂至今</p></div>
 
 <div class="case"><h3>台灣日立空調</h3><div class="tag">製造／外商</div>
-<p><b>客戶情境</b>　<span class="todo">暫時假設，請修正</span>　外商對 IT 供應商的服務水準與回應速度要求高，系統可用度標準嚴格。</p>
-<p style="margin-top:8px"><b>我們提供</b>　儲存備份設備建置・長期維護服務</p>
 <p class="ok">✔ 維護合約持續簽訂至今</p></div>
 </div></section>"""
 
@@ -449,7 +438,6 @@ ABOUT = """
 <ul class="tl" style="margin-top:24px">
 <li><b>2007</b>元僑科技成立，投入儲存備援系統整合與虛擬化管理領域</li>
 <li><b>2008</b>以「資料」為核心重新定位服務方向，建立企業諮詢顧問團隊</li>
-<li><b><span class="todo">年份待確認</span></b>取得 IBM LTO 磁帶代理資格・新增 Palo Alto Networks 產品線・開展二手零件與 FAS 短期租賃服務</li>
 <li><b>2026</b>成立 AI Agent 開發與銷售業務</li>
 </ul></div>
 <div><h2>專業認證與代理資格</h2>
@@ -500,19 +488,12 @@ CONTACT = """
 <li><b>地址</b>新北市汐止區新台五路一段99號31樓之3</li>
 <li><b>服務時間</b>週一至週五 9:00–18:00</li>
 </ul>
-<div class="map-ph">📍 Google 地圖嵌入位置（遠東世界中心，近汐科站）</div>
+<a class="map-ph" href="https://www.google.com/maps/search/?api=1&amp;query=新北市汐止區新台五路一段99號31樓之3" target="_blank" rel="noopener noreferrer">📍 開啟 Google 地圖導航（遠東世界中心，近汐科站）</a>
 </div>
 <div class="form">
-<h2>詢價表單</h2>
-<label>公司名稱 *</label><input type="text" placeholder="貴公司名稱">
-<label>姓名 *</label><input type="text" placeholder="您的姓名">
-<label>電話 *</label><input type="tel" placeholder="聯絡電話">
-<label>Email *</label><input type="email" placeholder="email@company.com">
-<label>需求類別 *</label>
-<select><option>NetApp 儲存設備</option><option>IBM LTO 磁帶</option><option>二手零件／設備</option><option>Storage 短期租賃</option><option>資訊安全（Palo Alto）</option><option>AI Agent／自動化開發</option><option>其他</option></select>
-<label>需求說明</label><textarea placeholder="請簡述您的需求，例如：需要 FAS8200 電源模組 2 個"></textarea>
-<p style="font-size:12.5px;color:var(--muted);margin-top:10px">本表單資料僅用於回覆您的需求。</p>
-<a class="btn" style="margin-top:14px;width:100%;text-align:center" href="#">送出詢問（原型示意）</a>
+<h2>Email 需求給我們</h2>
+<p>請在信件中提供公司名稱、聯絡人、電話、需求類別與簡要說明。如有設備型號、零件編號或數量，一併提供可加快確認。</p>
+<a class="btn" style="margin-top:18px;width:100%;text-align:center" href="mailto:sales@datasys.com.tw?subject=官網需求詢問">寄送 Email 至 sales@datasys.com.tw</a>
 </div>
 </div></div></section>"""
 
