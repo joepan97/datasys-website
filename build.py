@@ -237,7 +237,7 @@ RENTAL = """
 <h2>可租賃機型與方案</h2>
 <div class="grid g2" style="margin-top:26px">
 <div class="stock"><h3>可租機型</h3><ul><li>NetApp FAS2700 系列</li><li>NetApp FAS2600 系列</li><li>NetApp FAS8200 系列</li><li>NetApp FAS8000 系列</li><li>DS224C / DS212C 硬碟櫃（可搭配擴充容量）</li></ul></div>
-<div class="stock"><h3>方案說明</h3><ul><li><b>最短租期：30 天</b></li><li>安裝設定費另計，由 NetApp 認證工程師執行</li><li>計費方式 <span class="todo">待確認</span></li><li>運送方式與費用 <span class="todo">待確認</span></li><li>歸還資料抹除機制 <span class="todo">待確認</span></li></ul></div>
+<div class="stock"><h3>方案說明</h3><ul><li><b>最短租期：30 天</b></li><li>安裝設定費另計，由 NetApp 認證工程師執行</li><li>計費方式：來電洽詢</li><li>運送方式與費用：來電洽詢</li><li>歸還資料抹除機制：來電洽詢</li></ul></div>
 </div></div></section>
 
 <section class="sec"><div class="wrap">
