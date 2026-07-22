@@ -148,4 +148,7 @@ footer a:hover{color:#fff}
 .info-list{list-style:none;font-size:15.5px}
 .info-list li{padding:9px 0;border-bottom:1px dashed var(--line)}
 .info-list b{color:var(--navy);margin-right:10px}
+.line-contact a{display:inline-flex;align-items:center;gap:8px;color:#06c755;font-weight:700}
+.line-contact a:hover{text-decoration:underline;text-underline-offset:3px}
+.line-icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:26px;border-radius:7px;background:#06c755;color:#fff;font-family:Arial,sans-serif;font-size:9px;font-weight:800;letter-spacing:-.4px;line-height:1}
 .map-ph{background:var(--bg-soft);border:1px dashed var(--line);border-radius:12px;height:220px;display:flex;align-items:center;justify-content:center;color:var(--muted);margin-top:18px}
