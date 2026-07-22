@@ -496,7 +496,7 @@ CONTACT = """
 <ul class="info-list" style="margin-top:18px">
 <li><b>電話</b>02-2697-3311、02-2697-3312</li>
 <li><b>Email</b>sales@datasys.com.tw</li>
-<li class="line-contact"><b>LINE 官方帳號</b><a href="https://line.me/R/ti/p/@758gjhvi" target="_blank" rel="noopener noreferrer" aria-label="加入元僑科技 LINE 官方帳號（另開視窗）"><span class="line-icon" aria-hidden="true">LINE</span><span>加入好友</span></a></li>
+<li class="line-contact"><b>LINE 官方帳號</b><a class="line-add-button" href="https://line.me/R/ti/p/@758gjhvi" target="_blank" rel="noopener noreferrer"><img src="image/line-add-friend.png" alt="加入元僑科技 LINE 官方帳號"></a></li>
 <li><b>地址</b>新北市汐止區新台五路一段99號31樓之3</li>
 <li><b>服務時間</b><span class="todo">待確認（例：週一至週五 9:00–18:00）</span></li>
 </ul>
