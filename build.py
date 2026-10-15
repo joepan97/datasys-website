@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """元僑科技官網原型建置腳本：python3 build.py 產生 site/*.html"""
 import os
+import sys
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site")
 
@@ -109,6 +110,12 @@ FOOTER = """<section class="cta-band"><div class="wrap">
 </div><div class="copy">© 2026 元僑科技有限公司 Datasys Technologies Co., Ltd.　｜　自 2007 年服務台灣企業與政府機關</div></div></footer>"""
 
 def page(fname, title, desc, body):
+    footer = FOOTER
+    if fname == "parts.html":
+        footer = (footer.replace("設備需求、零件急件、租賃詢價", "急件先核對型號，讓我們協助確認供貨與交期")
+                  .replace("來電最快，或 Email 需求給我們，一個工作天內回覆", "提供設備型號或零件編號，先核對相容性、品況與需求。")
+                  .replace('href="tel:0226973311">02-2697-3311', 'href="tel:0226973311" data-track="phone_cta">02-2697-3311')
+                  .replace('href="contact.html">填寫詢價表單', 'href="#quick-inquiry" data-track="form_jump">填寫快速詢料表單'))
     html = f"""<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -121,7 +128,7 @@ def page(fname, title, desc, body):
 <body>
 {header(fname)}
 {body}
-{FOOTER}
+{footer}
 </body>
 </html>"""
     html = iconify(html)
@@ -173,44 +180,121 @@ INDEX = """
 
 # ---------------------------------------------------------------- parts
 PARTS = """
-<section class="hero"><div class="wrap">
+<section class="hero parts-hero"><div class="wrap">
 <p class="kicker">現貨庫存・90 天保固</p>
-<h1>NetApp、Cisco、HP、DELL、Oracle Sun<br>二手零件與設備供應</h1>
-<p class="lead">設備過保、機型停產（EOL）、故障急件等不到原廠交期——來電報上型號或零件編號，快速確認供貨與報價。</p>
-<div class="cta-row"><a class="btn" href="tel:0226973311">📞 急件詢價 02-2697-3311</a></div>
+<h1>NetApp、Cisco 與伺服器二手零件｜<br class="desktop-break">急件先核對相容性，再確認供貨與交期</h1>
+<p class="lead">設備過保、機型停產，或故障急件等不到原廠交期？提供設備型號或零件編號，元僑先協助核對相容性、庫存與品況，再回覆報價與交期。</p>
+<div class="cta-row"><a class="btn" data-track="phone_cta" href="tel:0226973311">☎ 立即電話詢料｜02-2697-3311</a><a class="btn ghost" data-track="form_jump" href="#quick-inquiry">填寫快速詢料表單</a></div>
 </div></section>
 
-<section class="sec"><div class="wrap">
-<h2>現貨庫存品項</h2><p class="sub">庫存即時變動，未列出的型號也歡迎詢問。</p>
-<div class="grid g2 stock">
-<div><h3>🗄 NetApp 儲存系統</h3><ul><li>FAS2700 系列</li><li>FAS2600 系列</li><li>FAS8200 系列</li><li>FAS8000 系列</li><li>各系列控制器、電源、風扇等零件</li></ul>
-<h3>💽 NetApp 硬碟櫃（Disk Shelf）</h3><ul><li>DS224C</li><li>DS212C</li><li>相關硬碟、線材與模組</li></ul></div>
-<div><h3>🔀 Cisco 網路設備</h3><ul><li>Nexus 9000 系列（N9K）Switch</li><li>Nexus 5000 系列（N5K）Switch</li></ul>
-<h3>🖥 其他品牌伺服器零件</h3><ul><li>HP / DELL / Oracle Sun Server 零件，可依型號協助查詢供貨</li></ul></div>
+<section class="sec inquiry-section" id="quick-inquiry"><div class="wrap">
+<div class="section-heading"><p class="eyebrow">PARTS INQUIRY</p><h2>快速詢料：提供料號，我們先幫你核對</h2><p class="sub">不確定完整料號也沒關係。請提供目前設備型號、零件標示或故障情況；我們會依實際庫存與相容性確認後回覆。</p></div>
+<form class="form parts-form" id="parts-inquiry-form" data-endpoint="" novalidate>
+<div class="form-grid">
+<div class="field"><label for="equipment">設備品牌／型號 <span>必填</span></label><input id="equipment" name="設備品牌／型號" autocomplete="off" required></div>
+<div class="field"><label for="part-number">零件編號／Part Number</label><input id="part-number" name="零件編號" autocomplete="off"></div>
+<div class="field"><label for="need-type">需求類型 <span>必填</span></label><select id="need-type" name="需求類型" required><option value="">請選擇</option><option>故障急件</option><option>計畫性擴充</option><option>備品採購</option><option>其他</option></select></div>
+<div class="field"><label for="quantity">需求數量</label><input id="quantity" name="需求數量" type="number" min="1" step="1" inputmode="numeric"></div>
+<div class="field"><label for="arrival">需求到貨時間</label><input id="arrival" name="需求到貨時間" type="text" placeholder="例如：2026/10/20 前"></div>
+<div class="field"><label for="company">公司名稱</label><input id="company" name="公司名稱" autocomplete="organization"></div>
+<div class="field"><label for="contact-name">聯絡人 <span>必填</span></label><input id="contact-name" name="聯絡人" autocomplete="name" required></div>
+<div class="field"><label for="phone">電話 <span>必填</span></label><input id="phone" name="電話" type="tel" autocomplete="tel" inputmode="tel" required></div>
+<div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" autocomplete="email"></div>
+<div class="field field-wide"><label for="note">補充說明</label><textarea id="note" name="補充說明" rows="4" placeholder="故障情況、設備標籤資訊或其他需求"></textarea></div>
 </div>
-<div class="promise"><strong>90 天保固承諾</strong><br>所有二手零件與設備，自交貨日起算 90 天內故障免費更換。</div>
+<button class="btn submit-btn" type="submit">送出需求，請協助確認</button>
+<p class="privacy-note">送出後，我們將依所提供資訊確認相容性、庫存、品況與交期；實際供貨與保固條件以正式報價內容為準。</p>
+<p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+<noscript><p class="form-error">請啟用 JavaScript 以送出表單，或直接來電 02-2697-3311。</p></noscript>
+</form>
 </div></section>
 
-<section class="sec soft"><div class="wrap">
-<h2>什麼情況下找我們</h2>
-<div class="grid g2" style="margin-top:26px">
-<div class="feat"><div class="n">⏰</div><div><h3>原廠保固已過期</h3><p>過保設備送原廠維修費用高、流程長，二手零件替換是務實的選擇。</p></div></div>
-<div class="feat"><div class="n">🚫</div><div><h3>機型已停產（EOL / EOS）</h3><p>原廠已不再供貨的機型，我們的庫存可能還有料。</p></div></div>
-<div class="feat"><div class="n">🔥</div><div><h3>故障急件，等不了原廠交期</h3><p>生產環境設備故障，每多停一天都是損失。常備庫存大幅縮短等料時間。</p></div></div>
-<div class="feat"><div class="n">♻</div><div><h3>延長現有設備使用年限</h3><p>設備運作正常、暫不汰換，備妥關鍵零件讓它安心再戰幾年。</p></div></div>
+<section class="sec trust-section"><div class="wrap"><div class="grid g3 trust-grid">
+<article class="trust-card"><div class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6M7 16h3"/></svg></div><h3>核對設備與料號</h3><p>依既有設備型號、零件編號與使用情境確認需求。</p></article>
+<article class="trust-card"><div class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 20 7v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M8 12h8M9 9h6M9 15h6"/></svg></div><h3>說明品況與測試範圍</h3><p>依實際庫存說明品況、測試狀態與可提供的資訊。</p></article>
+<article class="trust-card"><div class="line-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 15h3M14 15h2"/></svg></div><h3>確認交期與保固條件</h3><p>報價前先說明供貨狀態、交貨安排與適用保固條件。</p></article>
 </div></div></section>
 
-<section class="sec"><div class="wrap">
-<h2>服務方式</h2>
-<div class="grid g3" style="margin-top:26px">
-<div class="card"><div class="ico">1️⃣</div><h3>報型號</h3><p>來電或 Email 報上設備型號／零件編號。</p></div>
-<div class="card"><div class="ico">2️⃣</div><h3>確認報價</h3><p>我們確認庫存與品況，回覆報價與交期。</p></div>
-<div class="card"><div class="ico">3️⃣</div><h3>出貨</h3><p>確認交期與交貨方式，二手零件與設備自交貨日起提供 90 天保固。</p></div>
-</div>
-<h2 style="margin-top:48px">常見詢問</h2>
-<details class="faq"><summary>怎麼確認你們有沒有我要的零件？</summary><p>直接來電 02-2697-3311 報型號或零件編號，庫存有無當場告訴你。</p></details>
-<details class="faq"><summary>有保固嗎？</summary><p>有。自交貨日起算 90 天內故障免費更換。</p></details>
-</div></section>"""
+<section class="sec stock-section"><div class="wrap">
+<div class="section-heading"><p class="eyebrow">AVAILABLE CATEGORIES</p><h2>現貨庫存品項</h2><p class="sub">庫存依品項與時間變動，以下列出常見詢料類別，不代表即時庫存。請提供型號或料號確認相容性與供貨狀態。</p></div>
+<div class="grid g2 stock stock-cards">
+<article class="stock-card"><h3>NetApp 儲存系統</h3><ul><li>FAS2700、FAS2600 系列</li><li>FAS8200、FAS8000 系列</li><li>各系列控制器、電源、風扇等零件</li></ul><p class="stock-help">請提供設備型號／料號確認相容性與庫存。</p></article>
+<article class="stock-card"><h3>NetApp 硬碟櫃（Disk Shelf）</h3><ul><li>DS224C、DS212C</li><li>相關硬碟、線材與模組</li></ul><p class="stock-help">請提供設備型號／料號確認相容性與庫存。</p></article>
+<article class="stock-card"><h3>Cisco 網路設備</h3><ul><li>Nexus 9000 系列（N9K）Switch</li><li>Nexus 5000 系列（N5K）Switch</li></ul><p class="stock-help">請提供設備型號／料號確認相容性與庫存。</p></article>
+<article class="stock-card"><h3>其他品牌伺服器零件</h3><ul><li>HP、DELL、Oracle Sun Server 零件</li><li>可依設備資訊協助查詢</li></ul><p class="stock-help">請提供設備型號／料號確認相容性與庫存。</p></article>
+</div></div></section>
+
+<section class="sec soft"><div class="wrap"><div class="section-heading"><p class="eyebrow">WHEN TO CONTACT US</p><h2>什麼情況下找我們</h2></div>
+<div class="grid g2 scenario-grid">
+<article class="feat"><div class="n" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h3>原廠保固已過期</h3><p>想評估維修或替換零件時，可提供設備型號與故障資訊，先確認適用品項。</p></div></article>
+<article class="feat"><div class="n" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="m5.5 5.5 13 13"/></svg></div><div><h3>機型已停產（EOL / EOS）</h3><p>原廠停止供應時，可提供舊機型與零件標示，協助查詢可能的替代供貨。</p></div></article>
+<article class="feat"><div class="n" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div><div><h3>故障急件，等不了原廠交期</h3><p>先提供型號、零件編號與需求到貨時間，我們會依實際供貨狀態確認。</p></div></article>
+<article class="feat"><div class="n" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></div><div><h3>延長現有設備使用年限</h3><p>為仍在使用的設備採購備品前，可先確認相容性、品況與可供貨狀態。</p></div></article>
+</div></div></section>
+
+<section class="sec service-section"><div class="wrap"><div class="section-heading"><p class="eyebrow">HOW WE HELP</p><h2>服務方式</h2></div>
+<div class="grid g3 service-grid"><article class="card"><div class="step-number">01</div><h3>提供設備資訊</h3><p>提供設備型號、零件編號或故障情況。</p></article><article class="card"><div class="step-number">02</div><h3>核對與報價</h3><p>依實際庫存確認相容性、品況，回覆報價與交期。</p></article><article class="card"><div class="step-number">03</div><h3>確認交貨安排</h3><p>確認供貨狀態、交貨方式與適用保固條件後安排後續。</p></article></div>
+</div></section>
+
+<section class="warranty-section"><div class="wrap warranty-inner"><div><p class="eyebrow">90-DAY WARRANTY</p><h2>90 天保固：讓急件採購有清楚的責任依據</h2><p>元僑供應的二手零件與設備，自交貨日起提供 90 天保固。若在保固期間發生故障，請先與我們聯繫並提供設備與零件資訊，我們將依實際狀況協助確認處理方式。</p><p class="warranty-note">不同品項的測試範圍、交貨方式與保固適用條件可能不同，請以正式報價單與交易條件為準。</p></div><div class="warranty-mark" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M32 5 53 14v14c0 15-9 25-21 31C20 53 11 43 11 28V14L32 5z"/><path d="M22 32h20M32 22v20"/></svg></div></div></section>
+
+<section class="sec faq-section"><div class="wrap"><div class="section-heading"><p class="eyebrow">FAQ</p><h2>常見詢問</h2></div>
+<details class="faq"><summary>怎麼確認零件是否相容？</summary><p>請提供設備品牌、完整型號與零件編號；若不確定料號，也可提供零件標示或故障情況，我們會先依資訊協助核對。</p></details>
+<details class="faq"><summary>找不到料號，也可以詢問嗎？</summary><p>可以。請提供設備型號、零件外觀或標籤資訊，以及故障情況，方便我們協助判斷。</p></details>
+<details class="faq"><summary>所有品項都有現貨嗎？</summary><p>不是。庫存會依品項與時間變動，請提供型號、數量與需求時間，我們會確認當下供貨狀態。</p></details>
+<details class="faq"><summary>二手零件的品況如何確認？</summary><p>品況與測試狀態依實際品項而異；報價前會依可取得資訊說明，並以正式報價內容為準。</p></details>
+<details class="faq"><summary>多久能知道報價與交期？</summary><p>確認時間依型號、料號、庫存與查詢複雜度而定。提供完整設備資訊與需求到貨時間，有助於我們查詢後回覆。</p></details>
+<details class="faq"><summary>保固怎麼計算？</summary><p>二手零件與設備自交貨日起提供 90 天保固。品項測試範圍與保固適用條件請以正式報價單及交易條件為準。</p></details>
+</div></section>
+
+<script>
+(() => {
+  const track = (eventName) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName });
+    document.dispatchEvent(new CustomEvent('datasys:conversion', { detail: { event: eventName } }));
+  };
+  document.querySelectorAll('[data-track="phone_cta"]').forEach(link => link.addEventListener('click', () => track('phone_cta')));
+  document.querySelectorAll('[data-track="form_jump"]').forEach(link => link.addEventListener('click', () => track('form_cta_click')));
+  const form = document.getElementById('parts-inquiry-form');
+  const status = document.getElementById('form-status');
+  if (!form || !status) return;
+  let started = false;
+  form.addEventListener('input', () => {
+    if (!started) { started = true; track('form_start'); }
+  }, { once: true });
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    status.classList.remove('is-error');
+    status.textContent = '';
+    if (!form.reportValidity()) return;
+    const endpoint = form.dataset.endpoint.trim();
+    if (!endpoint) {
+      status.classList.add('is-error');
+      status.textContent = '表單收件服務尚未連線，需求尚未送出。請直接來電 02-2697-3311，或寄信至 sales@datasys.com.tw。';
+      return;
+    }
+    const submit = form.querySelector('[type="submit"]');
+    submit.disabled = true;
+    submit.textContent = '送出中…';
+    try {
+      const payload = Object.fromEntries(new FormData(form).entries());
+      const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
+      if (!response.ok) throw new Error('Request failed');
+      status.textContent = '已收到需求。我們將依你提供的資訊確認相容性、庫存、品況與交期後回覆。';
+      track('form_submit');
+      form.reset();
+      started = false;
+    } catch (error) {
+      status.classList.add('is-error');
+      status.textContent = '送出時發生問題，需求尚未確認送達。請稍後重試，或直接來電 02-2697-3311。';
+    } finally {
+      submit.disabled = false;
+      submit.textContent = '送出需求，請協助確認';
+    }
+  });
+})();
+</script>"""
 
 # ---------------------------------------------------------------- rental
 RENTAL = """
@@ -520,6 +604,8 @@ PAGES = [
      "NetApp 儲存、LTO 磁帶、二手零件、Storage 租賃詢價——電話 02-2697-3311，或填寫表單，我們將盡快回覆。", CONTACT),
 ]
 
-for fname, title, desc, body in PAGES:
+requested = sys.argv[1:] if len(sys.argv) > 1 else []
+pages_to_build = [entry for entry in PAGES if not requested or entry[0] in requested]
+for fname, title, desc, body in pages_to_build:
     page(fname, title, desc, body)
-print("done:", len(PAGES), "pages ->", OUT)
+print("done:", len(pages_to_build), "pages ->", OUT)
