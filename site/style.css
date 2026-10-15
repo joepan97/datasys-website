@@ -1,4 +1,5 @@
 :root{
+  --color-navy:#0B1F3A; --color-blue:#2563EB; --color-cyan:#22D3EE; --color-ink:#111827; --color-muted:#64748B; --color-surface:#F8FAFC;
   --navy:#0b3b6f; --navy-d:#072a52; --navy-xd:#051d3a;
   --accent:#e8862b; --accent-d:#cf7017;
   --ink:#1c2b3a; --muted:#5a6b7d; --line:#dde6ee;
@@ -184,6 +185,7 @@ footer a:hover{color:#fff}
 .form-status{min-height:0;margin-top:0;font-size:14px;font-weight:700}
 .form-status:not(:empty){margin-top:12px;padding:12px 14px;border-radius:8px;background:#ecfdf3;color:#067647}
 .form-status.is-error:not(:empty){background:#fef3f2;color:#b42318}
+.form-intro{font-size:14px;color:var(--muted);margin:4px 0 12px}.form-intro span,.form label span{color:#b42318;font-size:12px}.field-wide .service-fields{display:contents}.hp-field{position:absolute;left:-9999px;opacity:0;pointer-events:none}.submit-btn:disabled{opacity:.65;cursor:wait}.form input:invalid:not(:placeholder-shown),.form textarea:invalid:not(:placeholder-shown){border-color:#b42318}.inquiry-form{max-width:900px;margin:0 auto}.inquiry-form .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 20px}.inquiry-form .field-wide{grid-column:1/-1}.inquiry-form .service-fields{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 20px}.inquiry-form .service-fields:empty{display:none}.sticky-cta{display:none}
 .trust-section{padding-top:8px;padding-bottom:58px;background:#f8fafc}
 .trust-grid{gap:16px}
 .trust-card{padding:22px 22px 24px;background:#fff;border:1px solid #e2e8f0;border-radius:12px}
@@ -229,3 +231,4 @@ footer a:hover{color:#fff}
 .parts-cta .phone{color:#22d3ee}
 @media(max-width:760px){.parts-hero{min-height:0;padding:64px 0 54px}.parts-hero .desktop-break{display:none}.parts-hero h1{font-size:clamp(29px,7vw,38px);line-height:1.42}.parts-hero .lead{font-size:16px}.parts-hero .cta-row{display:grid;grid-template-columns:1fr;gap:10px}.parts-hero .cta-row .btn{text-align:center;min-height:48px}.form-grid{grid-template-columns:1fr}.parts-form .field-wide{grid-column:auto}.parts-form{padding:20px}.warranty-inner{align-items:flex-start}.warranty-mark{width:54px;height:54px}}
 @media(max-width:420px){.wrap{padding-left:18px;padding-right:18px}.parts-hero{padding:52px 0 44px}.parts-hero h1{font-size:28px}.sec{padding:46px 0}.parts-form{padding:17px}.parts-cta .phone{font-size:25px}.warranty-mark{display:none}}
+@media(max-width:767px){body{padding-bottom:76px}.topbar .wrap{justify-content:center}.topbar span{display:none}.navrow>.btn.sm{display:none}.btn,.burger,nav a{min-height:44px;display:inline-flex;align-items:center;justify-content:center}.inquiry-form .form-grid,.inquiry-form .service-fields{grid-template-columns:1fr}.inquiry-form .field-wide{grid-column:auto}.sticky-cta{display:grid;grid-template-columns:1fr 1fr;position:fixed;z-index:60;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:8px 12px calc(8px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -4px 16px rgba(11,31,58,.12)}.sticky-cta a{min-height:44px;text-align:center;border-radius:8px;font-weight:700;display:flex;align-items:center;justify-content:center}.sticky-cta .call{background:var(--navy);color:#fff}.sticky-cta .request{background:var(--accent);color:#fff}}

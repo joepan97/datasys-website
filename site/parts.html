@@ -6,6 +6,7 @@
 <title>NetApp、Cisco 二手零件與設備現貨供應｜90 天保固｜元僑科技</title>
 <meta name="description" content="NetApp FAS 系列、DS224C/DS212C 硬碟櫃、Cisco Nexus Switch 現貨庫存，交貨後 90 天保固。急件維修來電報型號快速報價：02-2697-3311。">
 <link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://www.datasys.com.tw/parts.html">
 </head>
 <body>
 <header>
@@ -27,24 +28,7 @@
 
 <section class="sec inquiry-section" id="quick-inquiry"><div class="wrap">
 <div class="section-heading"><p class="eyebrow">PARTS INQUIRY</p><h2>快速詢料：提供料號，我們先幫你核對</h2><p class="sub">不確定完整料號也沒關係。請提供目前設備型號、零件標示或故障情況；我們會依實際庫存與相容性確認後回覆。</p></div>
-<form class="form parts-form" id="parts-inquiry-form" data-endpoint="" novalidate>
-<div class="form-grid">
-<div class="field"><label for="equipment">設備品牌／型號 <span>必填</span></label><input id="equipment" name="設備品牌／型號" autocomplete="off" required></div>
-<div class="field"><label for="part-number">零件編號／Part Number</label><input id="part-number" name="零件編號" autocomplete="off"></div>
-<div class="field"><label for="need-type">需求類型 <span>必填</span></label><select id="need-type" name="需求類型" required><option value="">請選擇</option><option>故障急件</option><option>計畫性擴充</option><option>備品採購</option><option>其他</option></select></div>
-<div class="field"><label for="quantity">需求數量</label><input id="quantity" name="需求數量" type="number" min="1" step="1" inputmode="numeric"></div>
-<div class="field"><label for="arrival">需求到貨時間</label><input id="arrival" name="需求到貨時間" type="text" placeholder="例如：2026/10/20 前"></div>
-<div class="field"><label for="company">公司名稱</label><input id="company" name="公司名稱" autocomplete="organization"></div>
-<div class="field"><label for="contact-name">聯絡人 <span>必填</span></label><input id="contact-name" name="聯絡人" autocomplete="name" required></div>
-<div class="field"><label for="phone">電話 <span>必填</span></label><input id="phone" name="電話" type="tel" autocomplete="tel" inputmode="tel" required></div>
-<div class="field"><label for="email">Email</label><input id="email" name="Email" type="email" autocomplete="email"></div>
-<div class="field field-wide"><label for="note">補充說明</label><textarea id="note" name="補充說明" rows="4" placeholder="故障情況、設備標籤資訊或其他需求"></textarea></div>
-</div>
-<button class="btn submit-btn" type="submit">送出需求，請協助確認</button>
-<p class="privacy-note">送出後，我們將依所提供資訊確認相容性、庫存、品況與交期；實際供貨與保固條件以正式報價內容為準。</p>
-<p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-<noscript><p class="form-error">請啟用 JavaScript 以送出表單，或直接來電 02-2697-3311。</p></noscript>
-</form>
+<div data-inquiry-form="parts"></div>
 </div></section>
 
 <section class="sec trust-section"><div class="wrap"><div class="grid g3 trust-grid">
@@ -85,54 +69,6 @@
 <details class="faq"><summary>保固怎麼計算？</summary><p>二手零件與設備自交貨日起提供 90 天保固。品項測試範圍與保固適用條件請以正式報價單及交易條件為準。</p></details>
 </div></section>
 
-<script>
-(() => {
-  const track = (eventName) => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: eventName });
-    document.dispatchEvent(new CustomEvent('datasys:conversion', { detail: { event: eventName } }));
-  };
-  document.querySelectorAll('[data-track="phone_cta"]').forEach(link => link.addEventListener('click', () => track('phone_cta')));
-  document.querySelectorAll('[data-track="form_jump"]').forEach(link => link.addEventListener('click', () => track('form_cta_click')));
-  const form = document.getElementById('parts-inquiry-form');
-  const status = document.getElementById('form-status');
-  if (!form || !status) return;
-  let started = false;
-  form.addEventListener('input', () => {
-    if (!started) { started = true; track('form_start'); }
-  }, { once: true });
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    status.classList.remove('is-error');
-    status.textContent = '';
-    if (!form.reportValidity()) return;
-    const endpoint = form.dataset.endpoint.trim();
-    if (!endpoint) {
-      status.classList.add('is-error');
-      status.textContent = '表單收件服務尚未連線，需求尚未送出。請直接來電 02-2697-3311，或寄信至 sales@datasys.com.tw。';
-      return;
-    }
-    const submit = form.querySelector('[type="submit"]');
-    submit.disabled = true;
-    submit.textContent = '送出中…';
-    try {
-      const payload = Object.fromEntries(new FormData(form).entries());
-      const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
-      if (!response.ok) throw new Error('Request failed');
-      status.textContent = '已收到需求。我們將依你提供的資訊確認相容性、庫存、品況與交期後回覆。';
-      track('form_submit');
-      form.reset();
-      started = false;
-    } catch (error) {
-      status.classList.add('is-error');
-      status.textContent = '送出時發生問題，需求尚未確認送達。請稍後重試，或直接來電 02-2697-3311。';
-    } finally {
-      submit.disabled = false;
-      submit.textContent = '送出需求，請協助確認';
-    }
-  });
-})();
-</script>
 <section class="cta-band"><div class="wrap">
 <h2>急件先核對型號，讓我們協助確認供貨與交期</h2>
 <p>提供設備型號或零件編號，先核對相容性、品況與需求。</p>
@@ -145,5 +81,6 @@
 <div><h4>產品與服務</h4><a href="netapp.html">NetApp 儲存設備</a><a href="lto.html">IBM LTO 磁帶</a><a href="parts.html">二手零件與設備</a><a href="rental.html">Storage 短期租賃</a><a href="security.html">資訊安全</a><a href="ai.html">AI 解決方案</a></div>
 <div><h4>公司</h4><a href="cases.html">成功案例</a><a href="about.html">關於我們</a><a href="contact.html">聯絡我們</a></div>
 </div><div class="copy">© 2026 元僑科技有限公司 Datasys Technologies Co., Ltd.　｜　自 2007 年服務台灣企業與政府機關</div></div></footer>
+<script src="site-common.js" defer></script><script src="inquiry-form.js" defer></script>
 </body>
 </html>
