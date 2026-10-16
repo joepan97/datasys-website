@@ -140,6 +140,23 @@ footer a{color:#9db8d3;display:block;padding:3px 0}
 footer a:hover{color:#fff}
 .copy{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:18px;text-align:center;font-size:12.5px;color:#6e88a5}
 
+/* Legal pages */
+.legal-hero{padding:62px 0 54px}
+.legal-hero .kicker{margin-bottom:8px}
+.legal-hero h1{margin-bottom:10px}
+.legal-updated{color:#d7e5f4;font-size:15px}
+.legal-content{max-width:800px;margin:0 auto}
+.legal-content h2{font-size:21px;margin:40px 0 12px;color:var(--navy)}
+.legal-content h2:first-child{margin-top:0}
+.legal-content p,.legal-content li{font-size:16px;color:var(--ink)}
+.legal-content p{margin:0 0 16px}
+.legal-content ol{margin:0 0 16px;padding-left:1.55em}
+.legal-content li{padding-left:4px;margin:7px 0}
+.legal-content .legal-note{background:#fff7ee;border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 18px;margin:0 0 28px;color:#62401e;font-size:14px}
+.legal-content .legal-contact{background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin-top:14px}
+.legal-content .legal-contact p:last-child{margin-bottom:0}
+@media(max-width:560px){.legal-hero{padding:48px 0 42px}.legal-content h2{font-size:19px;margin-top:32px}.legal-content p,.legal-content li{font-size:15.5px}}
+
 
 /* contact form */
 .form{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px}

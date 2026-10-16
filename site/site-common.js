@@ -17,5 +17,9 @@
   if (burger && nav) { burger.setAttribute('aria-expanded', 'false'); burger.addEventListener('click', () => { const open = nav.classList.toggle('open'); burger.setAttribute('aria-expanded', String(open)); burger.setAttribute('aria-label', open ? '關閉選單' : '開啟選單'); }); document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { nav.classList.remove('open'); burger.focus(); burger.setAttribute('aria-expanded','false'); } }); }
   const serviceType = serviceTypeByPage[page];
   if (serviceType) document.querySelectorAll('.hero a[href="contact.html"], .cta-band a[href="contact.html"]').forEach(link => { link.href = `contact.html?service=${serviceType}`; link.dataset.service = serviceType; link.dataset.trackCta = ''; });
-  document.body.insertAdjacentHTML('beforeend', `<div class="sticky-cta" aria-label="快速聯絡"><a class="call" href="tel:0226973311" data-cta-location="sticky_mobile">電話詢價</a><a class="request" data-track-cta data-cta-location="sticky_mobile" href="contact.html">填寫需求</a></div>`);
+  const companyFooter = [...document.querySelectorAll('footer .grid > div')].find(section => section.querySelector('h4')?.textContent.trim() === '公司');
+  if (companyFooter && !companyFooter.querySelector('a[href="/privacy-policy"]')) {
+    companyFooter.insertAdjacentHTML('beforeend', '<span data-legal-links><a href="/privacy-policy">隱私權政策</a><a href="/data-deletion">資料刪除說明</a></span>');
+  }
+  document.body.insertAdjacentHTML('beforeend', `<div class="sticky-cta" aria-label="快速聯絡"><a class="call" href="tel:0226973311" data-cta-location="sticky_mobile">電話詢價</a><a class="request" data-track-cta data-cta-location="sticky_mobile" href="/contact.html">填寫需求</a></div>`);
 })();

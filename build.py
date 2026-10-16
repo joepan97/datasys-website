@@ -106,7 +106,7 @@ FOOTER = """<section class="cta-band"><div class="wrap">
 <div><h4>元僑科技有限公司</h4>
 <p>新北市汐止區新台五路一段99號31樓之3<br>電話：02-2697-3311、02-2697-3312<br>Email：sales@datasys.com.tw<br>統一編號：28703966</p></div>
 <div><h4>產品與服務</h4><a href="netapp.html">NetApp 儲存設備</a><a href="lto.html">IBM LTO 磁帶</a><a href="parts.html">二手零件與設備</a><a href="rental.html">Storage 短期租賃</a><a href="security.html">資訊安全</a><a href="ai.html">AI 解決方案</a></div>
-<div><h4>公司</h4><a href="cases.html">成功案例</a><a href="about.html">關於我們</a><a href="contact.html">聯絡我們</a></div>
+<div><h4>公司</h4><a href="cases.html">成功案例</a><a href="about.html">關於我們</a><a href="contact.html">聯絡我們</a><a href="/privacy-policy">隱私權政策</a><a href="/data-deletion">資料刪除說明</a></div>
 </div><div class="copy">© 2026 元僑科技有限公司 Datasys Technologies Co., Ltd.　｜　自 2007 年服務台灣企業與政府機關</div></div></footer>"""
 
 def page(fname, title, desc, body):
