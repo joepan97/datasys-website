@@ -14,7 +14,26 @@
   if (questions.length) org['@graph'].push({ '@type':'FAQPage', mainEntity:questions });
   const script = document.createElement('script'); script.type = 'application/ld+json'; script.textContent = JSON.stringify(org); document.head.append(script);
   const header = document.querySelector('header'); const nav = header?.querySelector('nav'); const burger = header?.querySelector('.burger');
-  if (burger && nav) { burger.setAttribute('aria-expanded', 'false'); burger.addEventListener('click', () => { const open = nav.classList.toggle('open'); burger.setAttribute('aria-expanded', String(open)); burger.setAttribute('aria-label', open ? '關閉選單' : '開啟選單'); }); document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { nav.classList.remove('open'); burger.focus(); burger.setAttribute('aria-expanded','false'); } }); }
+  if (burger && nav) {
+    // Older generated pages have an inline handler. Remove it so a tap only
+    // toggles the menu once; otherwise the inline and delegated handlers cancel out.
+    burger.removeAttribute('onclick');
+    burger.setAttribute('type', 'button');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        burger.focus();
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', '開啟選單');
+      }
+    });
+  }
   const serviceType = serviceTypeByPage[page];
   if (serviceType) document.querySelectorAll('.hero a[href="contact.html"], .cta-band a[href="contact.html"]').forEach(link => { link.href = `contact.html?service=${serviceType}`; link.dataset.service = serviceType; link.dataset.trackCta = ''; });
   const companyFooter = [...document.querySelectorAll('footer .grid > div')].find(section => section.querySelector('h4')?.textContent.trim() === '公司');

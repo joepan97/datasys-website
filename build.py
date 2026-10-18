@@ -91,7 +91,7 @@ def header(active):
 <div class="navrow">
   <a class="logo" href="index.html">元僑科技<small>DATASYS TECHNOLOGIES</small></a>
   <nav>{links}</nav>
-  <button class="burger" aria-label="開啟選單" onclick="this.closest('header').querySelector('nav').classList.toggle('open')">{I('menu')}</button>
+  <button class="burger" type="button" aria-label="開啟選單">{I('menu')}</button>
   <a class="btn sm" href="contact.html">立即詢價</a>
 </div>
 </header>"""
