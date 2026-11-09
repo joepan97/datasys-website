@@ -7,7 +7,11 @@
   const endpoint = '/api/inquiries';
   const tracked = (event, data = {}) => {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event, page_path: location.pathname, ...data });
+    if (typeof window.gtag === 'function') {
+      gtag('event', event, { page_path: location.pathname, ...data });
+    } else {
+      window.dataLayer.push({ event, page_path: location.pathname, ...data });
+    }
   };
   const esc = (value) => String(value).replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#039;' })[c]);
   const select = (name, label, options, required = false) => `<div class="field"><label for="${name}">${label}${required ? ' <span>必填</span>' : ''}</label><select id="${name}" name="${name}"${required ? ' required' : ''}><option value="">請選擇</option>${options.map(x => `<option value="${esc(x)}">${esc(x)}</option>`).join('')}</select></div>`;
@@ -54,7 +58,8 @@
         const body = await response.json().catch(() => ({}));
         if (!response.ok || !body.ok) throw new Error(body.error || 'submit_failed');
         status.textContent = '已收到您的需求。我們將依提供的資訊確認後儘快聯絡您；實際供貨、相容性與保固條件以正式報價內容為準。';
-        tracked('form_submit_success', { service_type: payload.service_type, form_id: 'inquiry-form' }); form.reset();
+        tracked('form_submit_success', { service_type: payload.service_type, form_id: 'inquiry-form' });
+        tracked('generate_lead', { service_type: payload.service_type, form_id: 'inquiry-form' }); form.reset();
       } catch (_) {
         status.classList.add('is-error'); status.textContent = '目前無法送出需求，請直接來電 02-2697-3311，或寄信至 sales@datasys.com.tw。';
         tracked('form_submit_error', { service_type: payload.service_type, form_id: 'inquiry-form' });
