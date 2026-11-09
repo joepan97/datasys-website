@@ -329,9 +329,9 @@ RENTAL = """
 # ---------------------------------------------------------------- lto
 LTO = """
 <section class="hero"><div class="wrap">
-<p class="kicker">IBM LTO 磁帶代理</p>
-<h1>IBM LTO 磁帶代理<br>企業備份與歸檔媒體穩定供應</h1>
-<p class="lead">磁帶仍是每 TB 成本最低、離線保存最安全的備份媒體。元僑科技為 IBM LTO 磁帶代理，服務台灣企業與政府機關近 20 年。</p>
+<p class="kicker">LTO-10 新世代・30 TB / 40 TB 原生容量</p>
+<h1>IBM LTO 磁帶代理<br>LTO-10 與各世代備份媒體供應</h1>
+<p class="lead">LTO-10 已推出 30 TB 與 40 TB 原生容量兩種磁帶，壓縮容量最高分別為 75 TB 與 100 TB（2.5:1）。元僑科技為 IBM LTO 磁帶代理；LTO-10 供應狀態與舊世代磁帶需求，歡迎洽詢確認。</p>
 <div class="cta-row"><a class="btn" href="tel:0226973311">📞 磁帶詢價 02-2697-3311</a><a class="btn ghost" href="contact.html">✉️ Email 詢價</a></div>
 </div></section>
 
@@ -347,25 +347,27 @@ LTO = """
 <section class="sec soft"><div class="wrap">
 <h2>供應品項</h2>
 <div class="grid g3" style="margin-top:26px">
-<div class="card"><div class="ico">📼</div><h3>IBM LTO 資料磁帶</h3><p><b>LTO-6、LTO-7、LTO-8</b>：常備供應<br><b>LTO-9</b>：少量供應，請先來電確認。</p></div>
+<div class="card"><div class="ico">📼</div><h3>IBM LTO 資料磁帶</h3><p><b>LTO-10</b>：30 TB / 40 TB，供應狀態請洽詢<br><b>LTO-6、7、8</b>：常備供應；<b>LTO-9</b>：少量供應。</p></div>
 <div class="card"><div class="ico">🧹</div><h3>清潔帶</h3><p>磁帶機定期清潔必備，與資料磁帶一併採購最方便。</p></div>
 <div class="card"><div class="ico">🏷</div><h3>條碼標籤（隨機號碼）</h3><p>自動化磁帶櫃管理用，磁帶出貨可搭配供應。</p></div>
 </div>
 <h2 style="margin-top:44px">LTO 各世代容量規格</h2>
 <p class="sub">公開資料，以 IBM 官方規格為準</p>
-<table class="spec"><tr><th>世代</th><th>原生容量</th><th>壓縮後容量（2.5:1）</th><th>供應狀態</th></tr>
+<table class="spec"><tr><th>世代／媒體</th><th>原生容量</th><th>壓縮後容量（2.5:1）</th><th>供應狀態</th></tr>
+<tr><td>LTO-10（40 TB）</td><td>40 TB</td><td>100 TB</td><td>洽詢確認</td></tr>
+<tr><td>LTO-10（30 TB）</td><td>30 TB</td><td>75 TB</td><td>洽詢確認</td></tr>
 <tr><td>LTO-9</td><td>18 TB</td><td>45 TB</td><td>少量供應</td></tr>
 <tr><td>LTO-8</td><td>12 TB</td><td>30 TB</td><td>✔ 常備</td></tr>
 <tr><td>LTO-7</td><td>6 TB</td><td>15 TB</td><td>✔ 常備</td></tr>
 <tr><td>LTO-6</td><td>2.5 TB</td><td>6.25 TB</td><td>✔ 常備</td></tr></table>
-<p style="margin-top:12px;color:var(--muted);font-size:14px">舊世代磁帶（LTO-5 以前）或其他品項需求，歡迎來電詢問。</p>
+<p style="margin-top:12px;color:var(--muted);font-size:14px">壓縮容量為 2.5:1 理論值，實際容量依資料可壓縮程度而異。LTO-10 磁帶機不支援讀寫 LTO-9 或更早世代；舊世代磁帶機也不相容 LTO-10 媒體，採購前請先核對設備型號。<a href="https://www.lto.org/lto-10/" target="_blank" rel="noopener noreferrer">LTO Program 規格與相容性</a>｜<a href="https://www.ibm.com/products/lto-tape-media" target="_blank" rel="noopener noreferrer">IBM 磁帶規格</a></p>
 </div></section>
 
 <section class="sec"><div class="wrap">
 <h2>常見詢問</h2>
 <details class="faq"><summary>可以少量購買嗎？</summary><p>最低訂購量依磁帶世代與當期供貨條件而定，請提供需要的規格與數量確認。</p></details>
-<details class="faq"><summary>LTO 磁帶可以向下相容嗎？</summary><p>磁帶機一般可讀取前一至二個世代的磁帶，選購前歡迎來電確認您的磁帶機型號。</p></details>
-<details class="faq"><summary>報價需要提供什麼資訊？</summary><p>磁帶世代（如 LTO-8）與數量即可；不確定規格的話，告訴我們磁帶機或磁帶櫃型號，我們協助確認。</p></details>
+<details class="faq"><summary>LTO-10 可以讀寫 LTO-9 或更早的磁帶嗎？</summary><p>不可以。LTO-10 磁帶機不支援讀寫 LTO-9 或更早世代媒體；LTO-9 及更早世代磁帶機也不能讀寫 LTO-10 磁帶。LTO-10 的 30 TB 與 40 TB 媒體皆供 LTO-10 磁帶機使用。升級前請先確認磁帶機及磁帶櫃型號。</p></details>
+<details class="faq"><summary>報價需要提供什麼資訊？</summary><p>請提供磁帶世代／容量（例如 LTO-10 40 TB）與數量；不確定規格的話，告訴我們磁帶機或磁帶櫃型號，我們協助確認。</p></details>
 </div></section>"""
 
 # ---------------------------------------------------------------- netapp
@@ -584,8 +586,8 @@ PAGES = [
      "NetApp FAS 系列、DS224C/DS212C 硬碟櫃、Cisco Nexus Switch 現貨庫存，交貨後 90 天保固。急件維修來電報型號快速報價：02-2697-3311。", PARTS),
     ("rental.html", "NetApp FAS Storage 短期租賃｜最短租期 30 天｜元僑科技",
      "NetApp FAS 系列儲存設備短期租賃，適用資料搬遷、機房搬遷、POC 測試、設備維修替代。最短租期 30 天。詢價：02-2697-3311。", RENTAL),
-    ("lto.html", "IBM LTO 磁帶代理｜LTO-6/7/8/9 資料磁帶、清潔帶、條碼標籤｜元僑科技",
-     "IBM LTO 磁帶代理，常備供應 LTO-6、LTO-7、LTO-8 資料磁帶（LTO-9 少量），並提供清潔帶與條碼標籤。詢價：02-2697-3311。", LTO),
+    ("lto.html", "IBM LTO 磁帶代理｜LTO-10 30/40TB、LTO-6/7/8/9｜元僑科技",
+     "元僑科技為 IBM LTO 磁帶代理，提供 LTO-10 30TB/40TB 規格資訊與各世代磁帶詢價；並供應清潔帶、條碼標籤。購買前請確認 LTO-10 不向下相容。詢價：02-2697-3311。", LTO),
     ("netapp.html", "NetApp 儲存設備銷售與建置｜認證工程師團隊｜元僑科技",
      "NetApp 儲存設備銷售、建置規劃與長期維護。從新機採購、短期租賃到過保零件供應，全生命週期支援。詢價：02-2697-3311。", NETAPP),
     ("security.html", "Palo Alto Networks 防火牆與資安產品｜銷售與建置｜元僑科技",
