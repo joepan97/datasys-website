@@ -1,0 +1,24 @@
+# 元僑科技 DataSys Technologies Co, LTD
+
+> 元僑科技有限公司（DataSys Technologies Co, LTD）成立於 2007 年，位於新北市汐止區，是台灣的企業儲存、備份與 IT 設備供應商。NetApp 認證工程師團隊、IBM LTO 磁帶代理、NetApp Registered Partner。服務：NetApp 儲存設備銷售／建置／長期維護、IBM LTO 磁帶（LTO-6/7/8/9 常備，LTO-10 30TB/40TB 洽詢）、NetApp 與 Cisco 二手零件（90 天保固）、NetApp FAS 短期租賃（最短 30 天）、Palo Alto Networks 防火牆、企業 AI Agent 與流程自動化導入。詢價：02-2697-3311／sales@datasys.com.tw
+
+## Key pages
+
+- [首頁](https://www.datasys.com.tw/): 公司與六大服務總覽（NetApp 儲存、LTO 磁帶、二手零件、租賃、資安、AI 解決方案）
+- [NetApp 儲存設備](https://www.datasys.com.tw/netapp.html): 銷售、建置、長期維護與過保支援；NetApp AFF C 系列全快閃；NetApp Registered Partner
+- [IBM LTO 磁帶](https://www.datasys.com.tw/lto.html): LTO-10 30/40TB 規格與相容性（LTO-10 不向下相容）、LTO-6/7/8/9 供應狀態、清潔帶與條碼標籤
+- [二手零件與設備](https://www.datasys.com.tw/parts.html): NetApp FAS、DS224C/DS212C 硬碟櫃、Cisco Nexus 現貨，90 天保固，急件報價
+- [Storage 短期租賃](https://www.datasys.com.tw/rental.html): NetApp FAS 短租，最短 30 天，適用機房搬遷、POC 測試、維修過渡
+- [資訊安全](https://www.datasys.com.tw/security.html): Palo Alto Networks 次世代防火牆銷售與建置
+- [AI 解決方案](https://www.datasys.com.tw/ai.html): AI Agent 導入、自動化流程開發、SaaS 規劃
+- [成功案例](https://www.datasys.com.tw/cases.html): 客戶自建置後維護合約持續簽訂至今
+- [關於我們](https://www.datasys.com.tw/about.html): 2007 年成立、認證資格、地址與聯絡方式
+- [聯絡我們／詢價](https://www.datasys.com.tw/contact.html): 電話 02-2697-3311、02-2697-3312，email sales@datasys.com.tw，新北市汐止區新台五路一段99號31樓之3
+
+## Contact
+
+- Phone: +886-2-2697-3311 / +886-2-2697-3312
+- Email: sales@datasys.com.tw
+- Address: 31F-3, No. 99, Xintai 5th Rd. Sec. 1, Xizhi District, New Taipei City, Taiwan
+- Founded: 2007
+- English name: DataSys Technologies Co, LTD
