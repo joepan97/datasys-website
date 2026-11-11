@@ -84,12 +84,12 @@ def iconify(html):
 
 def header(active):
     links = "".join(
-        f'<a href="{h}" class="{"on" if h == active else ""}">{t}</a>' for h, t in NAV
+        f'<a href="{"/" if h == "index.html" else h}" class="{"on" if h == active else ""}">{t}</a>' for h, t in NAV
     )
     return f"""<header>
 <div class="topbar"><div class="wrap"><span>✉️ sales@datasys.com.tw</span><a href="tel:0226973311">📞 02-2697-3311</a></div></div>
 <div class="navrow">
-  <a class="logo" href="index.html">元僑科技<small>DATASYS TECHNOLOGIES</small></a>
+  <a class="logo" href="/">元僑科技<small>DATASYS TECHNOLOGIES</small></a>
   <nav>{links}</nav>
   <button class="burger" type="button" aria-label="開啟選單">{I('menu')}</button>
   <a class="btn sm" href="contact.html">立即詢價</a>
@@ -111,6 +111,9 @@ FOOTER = """<section class="cta-band"><div class="wrap">
 
 def page(fname, title, desc, body):
     footer = FOOTER
+    hero_image = {"index.html": "hero-home", "ai.html": "hero-ai"}.get(fname)
+    preload = (f'<link rel="preload" as="image" href="image/{hero_image}.webp?v=20261110" fetchpriority="high">\n'
+               if hero_image else "")
     if fname == "parts.html":
         footer = (footer.replace("設備需求、零件急件、租賃詢價", "急件先核對型號，讓我們協助確認供貨與交期")
                   .replace("來電最快，或 Email 需求給我們，一個工作天內回覆", "提供設備型號或零件編號，先核對相容性、品況與需求。")
@@ -123,7 +126,7 @@ def page(fname, title, desc, body):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="stylesheet" href="style.css">
+{preload}<link rel="stylesheet" href="style.css">
 </head>
 <body>
 {header(fname)}
@@ -139,11 +142,21 @@ def page(fname, title, desc, body):
 # ---------------------------------------------------------------- index
 INDEX = """
 <section class="hero hero-home"><div class="wrap">
-<p class="kicker">SINCE 2007・企業儲存與備份專家</p>
-<h1>企業儲存、備份與 IT 設備<br>的專業供應商</h1>
-<p class="lead">NetApp 原廠認證工程師｜IBM LTO 磁帶代理｜自 2007 年服務台灣企業與政府機關</p>
-<div class="cta-row"><a class="btn" href="tel:0226973311">📞 立即詢價 02-2697-3311</a><a class="btn ghost" href="contact.html">✉️ Email 需求給我們</a></div>
+<p class="kicker">SINCE 2007 · DATASYS TECHNOLOGY</p>
+<h1>企業儲存與備份<br><span>從建置到維護，都有人支援。</span></h1>
+<p class="lead">從 NetApp 儲存、IBM LTO 磁帶到過保設備零件與短期租賃，協助您解決採購、維護與設備升級需求。</p>
+<div class="cta-row"><a class="btn" data-track-cta data-cta-location="hero" href="contact.html">立即討論需求 ↗</a><a class="btn ghost" data-cta-location="hero" href="tel:0226973311">電話詢問 02-2697-3311 ↗</a></div>
 </div></section>
+
+<section class="home-trust" aria-label="元僑科技服務特色"><div class="wrap home-trust-grid">
+<div><span aria-hidden="true">◷</span>自 2007 年服務至今</div><div><span aria-hidden="true">◇</span>NetApp 認證工程師</div><div><span aria-hidden="true">▣</span>IBM LTO 磁帶代理</div><div><span aria-hidden="true">↗</span>設備維護與零件支援</div>
+</div></section>
+
+<section class="sec home-services"><div class="wrap"><p class="home-section-label">HOW CAN WE HELP?</p><h2>您目前需要什麼協助？</h2><p class="sub">從需求出發，找到適合的服務入口。</p><div class="grid g3">
+<article class="card"><p class="home-card-label">01 / 儲存與備份</p><h3>我要規劃儲存與備份</h3><p>設備採購、容量規劃與備份需求。</p><p><a href="netapp.html">NetApp</a>・<a href="lto.html">LTO</a>・<a href="security.html">資安</a></p><a class="more" href="contact.html?service=netapp" data-track-cta data-service="netapp">開始需求評估 →</a></article>
+<article class="card"><p class="home-card-label">02 / 零件與租賃</p><h3>設備故障，需要零件或租賃</h3><p>提供型號或料號，協助確認供應。</p><p><a href="parts.html">二手零件</a>・<a href="rental.html">Storage 租賃</a></p><a class="more" href="contact.html?service=parts" data-track-cta data-service="parts">提供型號／料號詢料 →</a></article>
+<article class="card"><p class="home-card-label">03 / 企業 AI</p><h3>評估 AI 與流程自動化</h3><p>從可驗證的小流程開始討論。</p><p><a href="ai.html">AI Agent</a>・工作流評估・導入訪談</p><a class="more" href="contact.html?service=ai" data-track-cta data-service="ai">預約需求訪談 →</a></article>
+</div></div></section>
 
 <section class="sec"><div class="wrap">
 <h2>六大業務</h2><p class="sub">從新機採購、租賃、維護到過保零件供應——企業 IT 設備的每個階段，我們都接得住。</p>
@@ -602,8 +615,25 @@ PAGES = [
      "NetApp 儲存、LTO 磁帶、二手零件、Storage 租賃詢價——電話 02-2697-3311，或填寫表單，我們將盡快回覆。", CONTACT),
 ]
 
-requested = sys.argv[1:] if len(sys.argv) > 1 else []
-pages_to_build = [entry for entry in PAGES if not requested or entry[0] in requested]
+arguments = sys.argv[1:]
+output_dir = OUT
+if "--output" in arguments:
+    output_index = arguments.index("--output")
+    if output_index + 1 >= len(arguments):
+        raise SystemExit("--output requires a directory")
+    output_dir = arguments[output_index + 1]
+    del arguments[output_index:output_index + 2]
+requested = arguments
+pages_to_build = [] if requested == ["404.html"] else [
+    entry for entry in PAGES if not requested or entry[0] in requested
+]
 for fname, title, desc, body in pages_to_build:
     page(fname, title, desc, body)
+if not requested or "404.html" in requested:
+    os.makedirs(output_dir, exist_ok=True)
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "404.html"), encoding="utf-8") as source:
+        not_found_html = source.read()
+    with open(os.path.join(output_dir, "404.html"), "w", encoding="utf-8") as destination:
+        destination.write(not_found_html)
+    print("built 404.html")
 print("done:", len(pages_to_build), "pages ->", OUT)
